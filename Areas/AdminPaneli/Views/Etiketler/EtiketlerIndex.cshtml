@@ -1,0 +1,39 @@
+﻿@model IEnumerable<_190410_BlogV1.Models.Etiketler>
+
+@{
+    ViewBag.Title = "EtiketlerIndex";
+    Layout = "~/Areas/AdminPaneli/Views/Shared/LayoutPageAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- left column -->
+    <div class="col-md-12 col-lg-8 offset-lg-2">
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtiketAdi)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EtiketAdi)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EtiketEkleIndex", new { id = item.EtiketlerID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EtiketlerID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EtiketlerID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
